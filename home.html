@@ -1,0 +1,55 @@
+<!-- 
+Build a simple todo list
+Input Field - You type something
+Add Item Button - button add to list of todos
+Clear Button - deletes all todos in a list
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>List Adder</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	addAnother = function() {
+	    var ul = document.getElementById("list");
+	    var li = document.createElement("li");
+	    var children = ul.children.length + 1
+	    li.setAttribute("id", "element"+children)
+	    var input_text = document.getElementById("textbox").value;
+	    li.appendChild(document.createTextNode(input_text));
+	    ul.appendChild(li)
+	};
+
+	clearList = function() {
+		var ul = document.getElementById('list');
+	  	if (ul) {
+	    	while (ul.firstChild) {
+	      		ul.removeChild(ul.firstChild);
+	    	}
+	  	}
+	};
+
+</script>
+
+<form>
+  <input type="text" name="textToAdd" id="textbox" value=""><br>
+  <input type="submit" value="Add Text to List" onclick="addAnother(); return false">
+</form>
+
+<button type="button" onclick="clearList(); return false"> Clear List </button>
+
+<h1> This is your To Do List:</h1>
+<ul id="list">
+	<li>Eat Chicken</li>
+  	<li>Eat Rice</li>
+  	<li>Drink Milk</li>
+</ul> 
+
+
+
+</body>
+</html>
